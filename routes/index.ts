@@ -4,9 +4,9 @@ import demo from "./demo.route";
 const router = Router();
 
 router.get("/", (_, res) => {
-  res.json({ message: "Hello world!" });
+  res.status(200).end();
 });
 
-router.use("/demo", demo);
+router.use("/sinch", demo);
 
 export default router;
