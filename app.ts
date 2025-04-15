@@ -1,6 +1,6 @@
-const express = require("express");
-const helmet = require("helmet");
-const routes = require("./routes");
+import express from "express";
+import helmet from "helmet";
+import routes from "./routes";
 
 const app = express();
 
@@ -13,4 +13,4 @@ app.listen(3000).on("listening", () => {
   console.info("server is listening on port http://localhost:3000");
 });
 
-module.exports = app;
+export default app;
