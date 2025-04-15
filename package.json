@@ -2,7 +2,7 @@
   "name": "express-redis-client",
   "version": "0.7.0",
   "description": "express vercel boilerplate",
-  "main": "app.js",
+  "main": "app.ts",
   "license": "MIT",
   "scripts": {
     "dev": "tsx watch app.ts",
