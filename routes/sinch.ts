@@ -13,8 +13,15 @@ client.on("error", (err: unknown) => {
 
 const LOGS_LIST = "request_logs";
 
-// POST endpoint to log requests
-router.post("/log", async (req: Request, res: Response) => {
+router.post("/connection-reset", (req: Request, res: Response) => {
+  req.socket.destroy(new Error("ECONNRESET"));
+});
+
+router.post("/timeout", (req: Request, res: Response) => {
+  // NoOp
+});
+
+router.post("/send", async (req: Request, res: Response) => {
   const logEntry = {
     timestamp: Date.now(),
     data: req.body,
@@ -35,7 +42,6 @@ router.post("/log", async (req: Request, res: Response) => {
   }
 });
 
-// GET endpoint to retrieve logs
 router.get("/logs", async (_: Request, res: Response) => {
   try {
     await client.connect();
